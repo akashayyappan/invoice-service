@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "env-cmd -f ./.env nodemon src/server.js"
+    "start": "env-cmd -f ./.env nodemon server.js"
   },
   "author": "",
   "license": "ISC"

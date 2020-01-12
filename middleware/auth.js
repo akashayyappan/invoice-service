@@ -6,7 +6,7 @@ const auth = async(req, res, next) => {
     let data;
     try {
         jwt.verify(token, process.env.JWT_KEY,(err,decoded) => {
-            if(err) res.status(401).send({error: err.message, expiredAt: err.expiredAt})
+            if(err) throw new Error(err)
             data = decoded
         })
 
