@@ -5,7 +5,7 @@ const auth = async(req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '')
     let data;
     try {
-        jwt.verify(token, process.env.JWT_KEY,(err,decoded) => {
+        jwt.verify(token, "EvenDeadImTheHero",(err,decoded) => {
             if(err) throw new Error(err)
             data = decoded
         })
