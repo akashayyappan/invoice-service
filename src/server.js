@@ -13,3 +13,5 @@ app.use(express.json());
 app.use("/", globalRouter);
 
 app.listen(port, ip);
+
+module.exports = app;
