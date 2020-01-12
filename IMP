@@ -1,0 +1,15 @@
+INVOICE
+-------------------------------------------------------------------------------------------
+
+DATABASE
+AWS, MongoDB, Shared RAM, 512MB Storage
+
+Cluster Name: Invoice
+
+username:adminUser
+password:mongoDBpassWord
+
+Connection String:
+mongodb+srv://adminUser:mongoDBpassWord@invoice-29otw.mongodb.net/test?retryWrites=true&w=majority
+
+--------------------------------------------------------------------------------------------
