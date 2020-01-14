@@ -46,7 +46,7 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.generateAuthToken = async function() {
     // Generate an auth token for the user
     const user = this
-    const token = jwt.sign({ _id: user._id, exp: Math.floor(Date.now() /1000) + (60 * 15) }, "EvenDeadImTheHero");
+    const token = jwt.sign({ _id: user._id, exp: Math.floor(Date.now() /1000) + (60 * 60 * 6) }, "EvenDeadImTheHero");
     user.token = token
     await user.save()
     return token
