@@ -14,6 +14,6 @@ app.use(cors())
 app.use(express.json());
 app.use("/", globalRouter);
 
-app.listen(port, ip);
+//app.listen(port, ip);
 
 module.exports = app;
