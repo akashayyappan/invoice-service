@@ -31,7 +31,15 @@ const userSchema = mongoose.Schema({
     },
     token: {
         type: String
-    }
+    },
+    projects:[{
+        projectID:{
+            type: String
+        },
+        projectName:{
+            type:String
+        }
+    }]
 })
 
 userSchema.pre('save', async function (next) {
@@ -47,7 +55,7 @@ userSchema.methods.generateAuthToken = async function() {
     // Generate an auth token for the user
     const user = this
     const token = jwt.sign({ _id: user._id, exp: Math.floor(Date.now() /1000) + (60 * 60 * 6) }, "EvenDeadImTheHero");
-    user.token = token
+    user.token = token;
     await user.save()
     return token
 }
@@ -63,6 +71,11 @@ userSchema.statics.findByCredentials = async (email, password) => {
         throw new Error({ error: 'Invalid login credentials' })
     }
     return user
+}
+
+userSchema.statics.findProjects = async (_user) => {
+    const user = await User.findOne(_user);
+    return user.projects;
 }
 
 const User = mongoose.model('User', userSchema)
